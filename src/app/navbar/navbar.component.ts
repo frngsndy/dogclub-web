@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,17 @@ import { Component, input } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  title = input("");
+  title = input('');
+  select = input(1);
+  faPaw = faPaw;
+  menus = [
+    { id: 1, path: '/', name: 'Home' },
+    { id: 2, path: '/flow', name: 'Flow' },
+  ]
   ngOnInit() { }
+
+  onSelect(id: number) {
+    // this.select = id;
+    const result = computed(() => this.select());
+  }
 }

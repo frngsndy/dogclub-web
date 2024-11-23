@@ -1,0 +1,5 @@
+<div class="flex flex-auto col-span-4 p-4">
+    @for (flow of flowList; track $index) {
+    <app-card [name]="flow.name" [desc]="flow.desc"></app-card>
+    }
+</div>

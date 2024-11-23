@@ -1,5 +1,15 @@
-<div class="flex flex-row gap-2 p-4 border-b shadow-xl bg-gray-200">
-    <button>Menu 1</button>
-    <button>Menu 2</button>
-    <button>Menu 3</button>
+<div class="flex flex-row px-6 py-2 gap-2 shadow-md bg-gray-300">
+
+    <div class="flex-auto font-bold text-2xl p-2">
+        <span class="mr-2">{{title()}}</span>
+        <fa-icon [icon]="faPaw"></fa-icon>
+    </div>
+
+    @for ( menu of menus ; track menu.id ) {
+    <button class="p-2 border-black border-b text-xl font-semibold hover:text-gray-500"
+        [ngClass]="{'border-b': menu.id == select()}" [routerLink]="menu.path"
+        (click)="onSelect(menu.id)">{{menu.name}}</button>
+    } @empty {
+    <li>loading.. menu</li>
+    }
 </div>

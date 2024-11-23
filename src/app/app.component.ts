@@ -1,4 +1,4 @@
-import { Component, computed, Signal, signal, WritableSignal } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { Component, computed, Signal, signal, WritableSignal } from '@angular/co
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'dogclub-web';
+  title = 'TTP Animal Hospital';
   ngOnInit() { }
 }
 
