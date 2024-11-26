@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FlowRoutingModule } from './flow/flow-routing.module';
-import { HomeRoutingModule } from './home/home-routing.module';
 
 const routes: Routes = [
-  { path: 'flow', loadChildren: () => import('./flow/flow.module').then(m => m.FlowModule) }
+  { path: '', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule) }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
-    HomeRoutingModule,
-    FlowRoutingModule
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

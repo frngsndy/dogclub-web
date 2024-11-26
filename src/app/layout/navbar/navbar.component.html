@@ -1,0 +1,12 @@
+<div
+    class="fixed flex flex-row w-full px-6 py-2 justify-between shadow-md bg-gradient-to-r from-emerald-200 to-emerald-500">
+    <div class="flex-auto font-bold text-2xl p-2">
+        <fa-icon [icon]="faPaw"></fa-icon>
+        <button routerLink="/" class="ml-2">TTP Animal Hospital</button>
+    </div>
+
+    <div class="flex font-semibold text-xl p-2 gap-4">
+        <button [ngClass]="{'text-white':selected == 1}" routerLink="/home" (click)="onSelect(1)">Home</button>
+        <button [ngClass]="{'text-white':selected == 2}" routerLink="/flow" (click)="onSelect(2)">Flow</button>
+    </div>
+</div>

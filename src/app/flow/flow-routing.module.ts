@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FlowComponent } from './flow.component';
 
 const routes: Routes = [
-  { path: "flow", component: FlowComponent}
+  { path: '', component: FlowComponent}
 ];
 
 @NgModule({
