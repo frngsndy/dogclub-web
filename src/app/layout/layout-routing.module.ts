@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { HomeModule } from '../home/home.module';
-import { FlowModule } from '../flow/flow.module';
+import { HomeComponent } from '../modules/home/home.component';
+import { FlowComponent } from '../modules/flow/flow.component';
 
 const routes: Routes = [
   {
     path: '', component: LayoutComponent,
     children: [
-      { path: 'home', loadChildren: () => HomeModule },
-      { path: 'flow', loadChildren: () => FlowModule }
+      { path: 'home', component: HomeComponent },
+      { path: 'flow', component: FlowComponent }
     ]
   },
 ];

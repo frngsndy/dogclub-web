@@ -12,7 +12,7 @@ export class NavbarComponent {
   title = input('');
   selected: number = 1;
   faPaw = faPaw;
-
+  
   ngOnInit() { }
 
   onSelect(id: number) {
