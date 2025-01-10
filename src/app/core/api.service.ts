@@ -25,4 +25,7 @@ export class ApiService {
   get(url: string) {
     return firstValueFrom(this.http.get(this.getBaseUrl() + url, this.getHeader()));
   }
+  post(url: string, param?: any) {
+    return firstValueFrom(this.http.post(this.getBaseUrl() + url, param, this.getHeader()));
+  }
 }

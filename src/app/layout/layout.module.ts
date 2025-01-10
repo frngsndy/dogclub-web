@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from '../shared/card/card.component';
 import { HomeComponent } from '../modules/home/home.component';
 import { FlowComponent } from '../modules/flow/flow.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FlowComponent } from '../modules/flow/flow.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     LayoutRoutingModule
   ]

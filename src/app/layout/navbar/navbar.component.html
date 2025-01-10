@@ -6,7 +6,13 @@
     </div>
 
     <div class="flex font-semibold text-xl p-2 gap-4">
-        <button [ngClass]="{'text-white':selected == 1}" routerLink="home" (click)="onSelect(1)">Home</button>
-        <button [ngClass]="{'text-white':selected == 2}" routerLink="flow" (click)="onSelect(2)">Flow</button>
+        <button class="menu-button" [ngClass]="{'text-white':selected == 1}" routerLink="home" (click)="onSelect(1)">
+            <span class="relative z-10">Home</span>
+        </button>
+        <button class="menu-button" [ngClass]="{'text-white':selected == 2}" routerLink="flow" (click)="onSelect(2)">
+            <span class="relative z-10">Flow</span>
+        </button>
+        <!-- <button [ngClass]="{'text-white':selected == 1}" routerLink="home" (click)="onSelect(1)">Home</button>
+        <button [ngClass]="{'text-white':selected == 2}" routerLink="flow" (click)="onSelect(2)">Flow</button> -->
     </div>
 </div>
