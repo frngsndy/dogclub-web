@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/dogclub-web",
+            "outputPath": "docs",
             "baseHref": "/dogclub-web/",
             "index": "src/index.html",
             "browser": "src/main.ts",
