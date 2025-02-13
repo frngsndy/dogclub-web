@@ -1,2 +1,0 @@
-### Build for deploy Github Pages
-ng build --output-path=dist --base-href /dogclub-web/
