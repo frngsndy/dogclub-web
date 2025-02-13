@@ -1,1 +1,0 @@
-import{a as t,c as i,i as n,m}from"./chunk-MCLQUXWK.js";var f=[],r=class o{static \u0275fac=function(e){return new(e||o)};static \u0275mod=i({type:o});static \u0275inj=t({imports:[m.forChild(f),m]})};var s=class o{static \u0275fac=function(e){return new(e||o)};static \u0275mod=i({type:o});static \u0275inj=t({imports:[n,r]})};export{s as DashboardModule};
