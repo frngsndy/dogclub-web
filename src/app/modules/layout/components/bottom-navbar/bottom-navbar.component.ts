@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
   selector: 'app-bottom-navbar',
-  imports: [],
   templateUrl: './bottom-navbar.component.html',
-  styleUrl: './bottom-navbar.component.css'
+  styleUrls: ['./bottom-navbar.component.css'],
+  imports: [AngularSvgIconModule],
 })
-export class BottomNavbarComponent {
+export class BottomNavbarComponent implements OnInit {
+  constructor() {}
 
+  ngOnInit(): void {}
 }

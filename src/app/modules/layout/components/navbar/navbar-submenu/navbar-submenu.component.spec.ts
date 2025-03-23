@@ -8,10 +8,11 @@ describe('NavbarSubmenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarSubmenuComponent]
-    })
-    .compileComponents();
+    imports: [NavbarSubmenuComponent],
+}).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(NavbarSubmenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

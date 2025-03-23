@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarMobileComponent } from './navbar-mobile.component';
+import { NavbarMobileComponent } from './navbar-mobilecomponent';
 
 describe('NavbarMobileComponent', () => {
   let component: NavbarMobileComponent;
@@ -8,10 +8,11 @@ describe('NavbarMobileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarMobileComponent]
-    })
-    .compileComponents();
+    imports: [NavbarMobileComponent],
+}).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(NavbarMobileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

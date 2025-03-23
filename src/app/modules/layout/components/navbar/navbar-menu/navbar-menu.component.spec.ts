@@ -8,10 +8,11 @@ describe('NavbarMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarMenuComponent]
-    })
-    .compileComponents();
+    imports: [NavbarMenuComponent],
+}).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(NavbarMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

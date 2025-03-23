@@ -1,21 +1,22 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import packageJson from '../../../../../../package.json';
 import { MenuService } from '../../services/menu.service';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgClass, NgIf, SidebarMenuComponent],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrls: ['./sidebar.component.css'],
+  imports: [NgClass, NgIf, AngularSvgIconModule, SidebarMenuComponent],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   public appJson: any = packageJson;
 
-  constructor(public menuService: MenuService) { }
+  constructor(public menuService: MenuService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   public toggleSidebar() {
     this.menuService.toggleSidebar();

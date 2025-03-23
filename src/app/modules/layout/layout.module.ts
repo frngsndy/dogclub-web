@@ -1,14 +1,7 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { LayoutRoutingModule } from './layout-routing.module';
-
-
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule
-  ]
-})
-export class LayoutModule { }
+@NgModule({ imports: [LayoutRoutingModule, AngularSvgIconModule.forRoot()], providers: [provideHttpClient(withInterceptorsFromDi())] })
+export class LayoutModule {}

@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Event, NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [SidebarComponent, NavbarComponent, RouterOutlet, FooterComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrls: ['./layout.component.css'],
+  imports: [SidebarComponent, NavbarComponent, RouterOutlet, FooterComponent],
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   private mainContent: HTMLElement | null = null;
 
   constructor(private router: Router) {
