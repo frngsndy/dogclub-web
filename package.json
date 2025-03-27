@@ -22,7 +22,7 @@
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
-    "postbuild": "rmdir /s /q .\\docs && xcopy dist\\browser\\* docs\\ /E /H /C /I",
+    "postbuild": "rmdir /s /q .\\docs && xcopy dist/dogclub-web\\browser\\* docs\\ /E /H /C /I",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:e2e": "npx playwright test --ui",
