@@ -13,6 +13,14 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../uikit/uikit.module').then((m) => m.UikitModule),
   },
+  {
+    path: 'report',
+    component: LayoutComponent,
+    children: [
+      { path: 'animal', loadComponent: () => import('../report1/report1.component').then((m) => m.Report1Component), }
+    ]
+  },
+
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'error/404' },
 ];
@@ -21,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }

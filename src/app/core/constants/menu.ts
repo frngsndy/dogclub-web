@@ -12,7 +12,6 @@ export class Menu {
           route: '/dashboard',
           children: [
             { label: 'Nfts', route: '/dashboard/nfts' },
-            { label: 'รายงานจำนวนสัตว์', route: '/dashboard/report1' }
           ],
         },
         {
@@ -42,6 +41,11 @@ export class Menu {
           route: '/components',
           children: [{ label: 'Table', route: '/components/table' }],
         },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'รายงาน-จำนวนสัตว์',
+          route: '/report/animal',
+        }
       ],
     },
     {

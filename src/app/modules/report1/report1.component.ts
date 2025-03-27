@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { DashboardService } from '../../services/services.service';
 import { FormsModule } from '@angular/forms';
+import { Report1Service } from './services/services.service';
 
 @Component({
   selector: 'app-report1',
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './report1.component.css'
 })
 export class Report1Component {
-  private _dashboardApi = inject(DashboardService);
+  private _dashboardApi = inject(Report1Service);
 
   ddMonth: any[] = [
     { id: 1, name: 'Jan' },
