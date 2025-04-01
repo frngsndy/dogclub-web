@@ -1,19 +1,19 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Report2Service } from './services/report2.service';
+import { Report3Service } from './services/report3.service';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import moment from 'moment';
 
 @Component({
-  selector: 'app-report2',
+  selector: 'app-report3',
   imports: [DatePipe, FormsModule, DecimalPipe],
-  templateUrl: './report2.component.html',
-  styleUrl: './report2.component.css'
+  templateUrl: './report3.component.html',
+  styleUrl: './report3.component.css'
 })
-export class Report2Component {
-  private _report2Api = inject(Report2Service);
+export class Report3Component {
+  private _report3Api = inject(Report3Service);
 
   @ViewChild('excelTable') excelTable!: ElementRef;
 
@@ -31,7 +31,7 @@ export class Report2Component {
       endDate: this.endDate,
     };
 
-    const res: any = await this._report2Api.getReport2(param);
+    const res: any = await this._report3Api.getReport3(param);
     if (res.data)
       this.items = res.data;
   }
@@ -40,23 +40,8 @@ export class Report2Component {
     this.fetchData();
   }
 
-  totalCase() {
-    const total = this.items.reduce((sum, item) => sum + item.numOfCustomer, 0);
-    return total ?? 0;
-  }
-
-  maximumCase() {
-    const maxItem = this.items.reduce((max, item) => {
-      return item.numOfCustomer > max.numOfCustomer ? item : max;
-    }, this.items[0]);
-    return maxItem == null ? 0 : maxItem.numOfCustomer;
-  }
-
-  minimumCase() {
-    const minItem = this.items.reduce((min, item) => {
-      return item.numOfCustomer < min.numOfCustomer ? item : min;
-    }, this.items[0]);
-    return minItem == null ? 0 : minItem.numOfCustomer;
+  total() {
+    return this.items.reduce((sum, item) => sum + item.total, 0)
   }
 
   exportToExcel() {

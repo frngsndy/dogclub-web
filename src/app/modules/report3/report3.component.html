@@ -1,0 +1,44 @@
+<div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
+    <div class="p-2 text-2xl font-semibold">รายงาน Forecast</div>
+    <div class="flex flex-col sm:flex-row gap-4 pb-2">
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">วันที่เริ่ม {{ startDate | date:'dd/MM/yyyy' }}</label>
+            <input type="date" [(ngModel)]="startDate" (change)="onChange($event)" />
+        </div>
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">ถึงวันที่ {{ endDate | date:'dd/MM/yyyy' }}</label>
+            <input type="date" [(ngModel)]="endDate" (change)="onChange($event)" />
+        </div>
+        <button
+            class="bg-primary hover:bg-primary/90 text-foreground hover:text-foreground/90 cursor-pointer flex-none rounded-md px-4 py-2.5 text-xs font-semibold"
+            (click)="exportToExcel()">
+            Export Excel
+        </button>
+    </div>
+
+    <div class="border border-gray-300 rounded-lg overflow-auto">
+        <table class="w-full border-collapse" #excelTable>
+            <thead>
+                <tr class="border-b bg-gray-100">
+                    <th class="p-2">รายการ</th>
+                    <th class="p-2">ยอดรวม</th>
+                    <th class="p-2">ตัว</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                <tr>
+                    <td class="p-2 border-b border-r">{{item.name}}</td>
+                    <td class="p-2 border-b border-r text-right">{{item.total | number: '0.0'}}</td>
+                    <td class="p-2 border-b text-right">{{item.count | number: '0.0'}}</td>
+                </tr>
+                }
+                <tr>
+                    <td class="p-2">รวม</td>
+                    <td class="p-2 text-right">{{total() | number: '0.0'}}</td>
+                    <td class="p-2 text-right"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

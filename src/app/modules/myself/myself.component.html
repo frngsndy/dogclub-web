@@ -1,9 +1,11 @@
 <div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
     <div class="flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row gap-4 pb-2">
-            <div class="flex flex-col sm:flex-row gap-2">
-                <label class="block"></label>
-                <input class="rounded" [(ngModel)]="salary">
+            <div class="flex flex-row gap-2">
+                <label class="block">เงินเดือน : </label>
+                <div>{{salary()}}</div>
+                <label class="block">+ ค่าที่พัก : </label>
+                <div>{{house()}}</div>
             </div>
         </div>
         <div class="border border-gray-300 rounded-lg overflow-auto">
