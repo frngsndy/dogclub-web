@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Report1Service } from './services/services.service';
+import { Report1Service } from './services/report1.service';
 
 @Component({
   selector: 'app-report1',
@@ -9,7 +9,7 @@ import { Report1Service } from './services/services.service';
   styleUrl: './report1.component.css'
 })
 export class Report1Component {
-  private _dashboardApi = inject(Report1Service);
+  private _report1Api = inject(Report1Service);
 
   ddMonth: any[] = [
     { id: 1, name: 'Jan' },
@@ -39,7 +39,7 @@ export class Report1Component {
   }
 
   async fetchMaster() {
-    const res: any = await this._dashboardApi.getMaster();
+    const res: any = await this._report1Api.getMaster();
     if (res.data) {
       this.ddVetName = res.data.vetName;
       this.ddPetType = res.data.petType;
@@ -54,7 +54,7 @@ export class Report1Component {
       petType: this.petType,
     };
 
-    const res: any = await this._dashboardApi.getReport1(param);
+    const res: any = await this._report1Api.getReport1(param);
     if (res.data)
       this.items = res.data;
   }

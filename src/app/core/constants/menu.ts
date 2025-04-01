@@ -45,6 +45,16 @@ export class Menu {
           icon: 'assets/icons/heroicons/outline/view-grid.svg',
           label: 'รายงาน-จำนวนสัตว์',
           route: '/report/animal',
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'รายงาน-จำนวนลูกค้า',
+          route: '/report/customer',
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'คำนวณเงินเดือน',
+          route: '/report/myself',
         }
       ],
     },

@@ -1,0 +1,75 @@
+<div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
+    <div class="p-2 text-2xl font-semibold">รายงานจำนวนสัตว์รายแพทย์</div>
+    <div class="flex flex-col sm:flex-row gap-4 pb-2">
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">วันที่เริ่ม {{ startDate | date:'dd/MM/yyyy' }}</label>
+            <input type="date" [(ngModel)]="startDate" (change)="onChange($event)" />
+        </div>
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">ถึงวันที่ {{ endDate | date:'dd/MM/yyyy' }}</label>
+            <input type="date" [(ngModel)]="endDate" (change)="onChange($event)" />
+        </div>
+        <button
+            class="bg-primary hover:bg-primary/90 text-foreground hover:text-foreground/90 cursor-pointer flex-none rounded-md px-4 py-2.5 text-xs font-semibold"
+            (click)="exportToExcel()">
+            Export Excel
+        </button>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 pb-2">
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">จำนวนเคสทั้งหมด : </label>
+            <label>{{totalCase() | number: '0.0'}}</label>
+        </div>
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">จำนวนเคสต่ำสุด : </label>
+            <label>{{minimumCase() | number: '0.0'}}</label>
+        </div>
+        <div class="flex flex-row gap-2">
+            <label class="font-semibold">จำนวนเคสสูงสุด : </label>
+            <label>{{maximumCase() | number: '0.0'}}</label>
+        </div>
+    </div>
+    <div class="border border-gray-300 rounded-lg overflow-auto">
+        <table class="w-full border-collapse" #excelTable>
+            <thead>
+                <tr class="border-b bg-gray-100">
+                    <th class="px-2">วัน</th>
+                    <th class="px-2">วัน/เดือน/ปี</th>
+                    <th class="px-2">จำนวนลูกค้า</th>
+                    <th class="px-2">น้อยกว่า 9.30</th>
+                    <th class="px-2">9.30 - 12.00</th>
+                    <th class="px-2">12.01 - 15.00</th>
+                    <th class="px-2">15.01 - 18.00</th>
+                    <th class="px-2">18.01 - 20.30</th>
+                    <th class="px-2">มากกว่า 20.30</th>
+                    <th class="px-2">จำนวนใบเสร็จ</th>
+                    <th class="px-2">Treatment</th>
+                    <th class="px-2">NonTreatment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                <tr class="hover:bg-gray-50">
+                    <td class="px-2 border-b text-xs">{{item.date | date: 'EEE'}}</td>
+                    <td class="px-2 border-b text-xs">{{item.date | date: 'dd/MM/yyyy'}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numOfCustomer}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime1}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime2}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime3}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime4}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime5}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numTime6}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numOfReceipt}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.treatment}}</td>
+                    <td class="px-2 border-b text-xs text-right">{{item.numOfReceipt - item.treatment}}</td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="12" class="p-2 text-center text-sm">No data.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

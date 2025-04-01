@@ -1,54 +1,61 @@
-<div class="p-2 text-2xl font-semibold">รายงานจำนวนสัตว์ รายแพทย์</div>
-<div class="flex flex-col sm:flex-row gap-2">
-    <div class="relative">
-        <label>เดือน</label>
-        <select [(ngModel)]="month" class="text-muted-foreground w-28! p-2" (change)="onChange($event)">
-            <option [value]="0">All</option>
-            @for(item of ddMonth; track $index) {
-            <option [value]="item.id">{{item.name}}</option>
-            }
-        </select>
+<div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
+    <div class="p-2 text-2xl font-semibold">รายงานจำนวนสัตว์รายแพทย์</div>
+    <div class="flex flex-col sm:flex-row gap-4 pb-2">
+        <div class="flex flex-row gap-2">
+            <label>เดือน</label>
+            <select [(ngModel)]="month" class="text-muted-foreground w-28! p-2" (change)="onChange($event)">
+                <option [value]="0">All</option>
+                @for(item of ddMonth; track $index) {
+                <option [value]="item.id">{{item.name}}</option>
+                }
+            </select>
+        </div>
+        <div class="flex flex-row gap-2">
+            <label>สัตว์แพทย์</label>
+            <select [(ngModel)]="vetName" class="text-muted-foreground w-60! p-2" (change)="onChange($event)">
+                <option [value]="''">All</option>
+                @for(item of ddVetName; track $index) {
+                <option [value]="item">{{item}}</option>
+                }
+            </select>
+        </div>
+        <div class="flex flex-row gap-2">
+            <label>ชนิดสัตว์</label>
+            <select [(ngModel)]="petType" class="text-muted-foreground w-28! p-2" (change)="onChange($event)">
+                <option [value]="''">All</option>
+                @for(item of ddPetType; track $index) {
+                <option [value]="item">{{item}}</option>
+                }
+            </select>
+        </div>
     </div>
-    <div class="relative">
-        <label>สัตว์แพทย์</label>
-        <select [(ngModel)]="vetName" class="text-muted-foreground w-60! p-2" (change)="onChange($event)">
-            <option [value]="''">All</option>
-            @for(item of ddVetName; track $index) {
-            <option [value]="item">{{item}}</option>
-            }
-        </select>
+    <div class="border border-gray-300 rounded-lg overflow-auto">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="border-b bg-gray-100">
+                    <th class="p-2">แพทย์</th>
+                    <th class="p-2">ชนิดสัตว์</th>
+                    <th class="p-2">จำนวนตัว</th>
+                    <th class="p-2">จำนวนครั้ง</th>
+                    <th class="p-2">เดือน</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                <tr class="hover:bg-gray-50">
+                    <td class="p-2 border-b">{{item.vetName}}</td>
+                    <td class="p-2 border-b">{{item.petType}}</td>
+                    <td class="p-2 border-b">{{item.countNo}}</td>
+                    <td class="p-2 border-b">{{item.countTime}}</td>
+                    <td class="p-2 border-b">{{item.month}}</td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="5" class="p-2 text-center text-sm">No data.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
     </div>
-    <div class="relative">
-        <label>ชนิดสัตว์</label>
-        <select [(ngModel)]="petType" class="text-muted-foreground w-28! p-2" (change)="onChange($event)">
-            <option [value]="''">All</option>
-            @for(item of ddPetType; track $index) {
-            <option [value]="item">{{item}}</option>
-            }
-        </select>
-    </div>
-</div>
-<div class="bg-white overflow-auto rounded-lg border border-gray-300">
-    <table class="w-full border-collapse">
-        <thead class="">
-            <tr class="border-b">
-                <th>แพทย์</th>
-                <th>ชนิดสัตว์</th>
-                <th>จำนวนตัว</th>
-                <th>จำนวนครั้ง</th>
-                <th>เดือน</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of items; track $index) {
-            <tr>
-                <td class="p-2 border-b">{{item.vetName}}</td>
-                <td class="p-2 border-b">{{item.petType}}</td>
-                <td class="p-2 border-b">{{item.countNo}}</td>
-                <td class="p-2 border-b">{{item.countTime}}</td>
-                <td class="p-2 border-b">{{item.month}}</td>
-            </tr>
-            }
-        </tbody>
-    </table>
 </div>
