@@ -21,7 +21,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build",
+    "build": "ng build --base-href /dogclub-web/",
     "postbuild": "rmdir /s /q .\\docs && mkdir .\\docs && xcopy dist\\dogclub-web\\browser\\* docs\\ /E /H /C /I",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
