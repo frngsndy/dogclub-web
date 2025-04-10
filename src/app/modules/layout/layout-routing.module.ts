@@ -17,10 +17,11 @@ const routes: Routes = [
     path: 'report',
     component: LayoutComponent,
     children: [
-      { path: 'animal', loadComponent: () => import('../report1/report1.component').then((m) => m.Report1Component), },
-      { path: 'customer', loadComponent: () => import('../report2/report2.component').then((m) => m.Report2Component), },
-      { path: 'forecast', loadComponent: () => import('../report3/report3.component').then((m) => m.Report3Component), },
-      { path: 'myself', loadComponent: () => import('../myself/myself.component').then((m) => m.MyselfComponent), }
+      { path: 'animal', loadComponent: () => import('../report1/report1.component').then((m) => m.Report1Component) },
+      { path: 'customer', loadComponent: () => import('../report2/report2.component').then((m) => m.Report2Component) },
+      { path: 'forecast', loadComponent: () => import('../report3/report3.component').then((m) => m.Report3Component) },
+      { path: 'myself', loadComponent: () => import('../myself/myself.component').then((m) => m.MyselfComponent) },
+      { path: 'strava', loadComponent: () => import('../strava/strava.component').then((m) => m.StravaComponent) },
     ]
   },
 

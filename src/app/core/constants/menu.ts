@@ -60,6 +60,11 @@ export class Menu {
           icon: 'assets/icons/heroicons/outline/view-grid.svg',
           label: 'คำนวณรายจ่าย',
           route: '/report/myself',
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'Strava',
+          route: '/report/strava',
         }
       ],
     },

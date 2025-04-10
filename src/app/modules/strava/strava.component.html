@@ -1,0 +1,122 @@
+<div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
+    <div class="pt-2 text-3xl"> NIRA SHABU CHALLENGE </div>
+    <div class="pb-2 text-xl"> 1-27 APRIL, 2025 </div>
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-row gap-4 w-full">
+            <div class="w-1/2 border border-gray-300 rounded-lg overflow-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b bg-yellow-100">
+                            <th class="w-1/5">ทีมสีเหลือง</th>
+                            <th class="w-1/5">ระยะทาง (Km)</th>
+                            <th class="w-1/5">แคลอรี่ (Cal)</th>
+                            <th class="w-1/5">จำนวนเวลา (Min)</th>
+                            <th class="w-1/5">จำนวนครั้ง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (name of yellow; track $index; let odd = $odd) {
+                        <tr class="hover:bg-gray-50" [ngClass]="{'bg-blue-50': odd}">
+                            <td class="p-2 px-6 border-b border-r">{{name}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{distance(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{calories(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{time(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{count(name)}}</td>
+                        </tr>
+                        }
+                        @empty {
+                        <tr>
+                            <td colspan="4" class="p-2 text-center text-sm">No data.</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="border border-gray-300 rounded-lg overflow-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="border-b bg-yellow-100">
+                                <th class="w-1/4">ระยะทาง (Km)</th>
+                                <th class="w-1/4">แคลอรี่ (Cal)</th>
+                                <th class="w-1/4">จำนวนเวลา (Min)</th>
+                                <th class="w-1/4">จำนวนครั้ง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2 px-6 text-right border-b border-r">{{distanceSum('y') | number: '0.2'}}
+                                </td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{caloriesSum('y') | number: '0.2'}}
+                                </td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{timeSum('y') | number: '0.2'}}</td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{countSum('y')}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-gray-500">วันที่ {{yesterday | date: 'dd-MM-yyyy'}} >> {{today | date: 'dd-MM-yyyy'}}
+                </div>
+                <div class="text-xl">แต้มปัจจุบัน : {{yellowScore()}}</div>
+            </div>
+        </div>
+        <div class="flex flex-row gap-4 w-full">
+            <div class="w-1/2 border border-gray-300 rounded-lg overflow-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b bg-red-100">
+                            <th class="w-1/5">ทีมสีแดง</th>
+                            <th class="w-1/5">ระยะทาง (Km)</th>
+                            <th class="w-1/5">แคลอรี่ (Cal)</th>
+                            <th class="w-1/5">จำนวนเวลา (Min)</th>
+                            <th class="w-1/5">จำนวนครั้ง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (name of red; track $index; let odd = $odd) {
+                        <tr class="hover:bg-gray-50" [ngClass]="{'bg-blue-50': odd}">
+                            <td class="p-2 px-6 border-b border-r">{{name}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{distance(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{calories(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{time(name) | number: '0.2'}}</td>
+                            <td class="p-2 px-6 text-right border-b border-r">{{count(name)}}</td>
+                        </tr>
+                        }
+                        @empty {
+                        <tr>
+                            <td colspan="4" class="p-2 text-center text-sm">No data.</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="border border-gray-300 rounded-lg overflow-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="border-b bg-red-100">
+                                <th class="w-1/4">ระยะทาง (Km)</th>
+                                <th class="w-1/4">แคลอรี่ (Cal)</th>
+                                <th class="w-1/4">จำนวนเวลา (Min)</th>
+                                <th class="w-1/4">จำนวนครั้ง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-2 px-6 text-right border-b border-r">{{distanceSum('r') | number: '0.2'}}
+                                </td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{caloriesSum('r') | number: '0.2'}}
+                                </td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{timeSum('r') | number: '0.2'}}</td>
+                                <td class="p-2 px-6 text-right border-b border-r">{{countSum('r')}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-gray-500">วันที่ {{yesterday | date: 'dd-MM-yyyy'}} >> {{today | date: 'dd-MM-yyyy'}}
+                </div>
+                <div class="text-xl">แต้มปัจจุบัน : {{redScore()}}</div>
+            </div>
+        </div>
+    </div>
+</div>
