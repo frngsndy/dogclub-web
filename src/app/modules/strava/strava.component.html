@@ -1,147 +1,21 @@
 <div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
-    <div class="pt-2 text-3xl"> NIRA SHABU CHALLENGE </div>
-    <div class="pb-2 text-xl"> 1-27 APRIL, 2025 </div>
-    <div class="flex flex-col gap-4">
-        <div class="flex flex-row gap-4 w-full">
-            <div class="w-1/2 border border-gray-300 rounded-lg overflow-auto">
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr class="border-b bg-yellow-100">
-                            <th class="w-1/5">ทีมสีเหลือง</th>
-                            <th class="w-1/5">ระยะทาง (Km)</th>
-                            <th class="w-1/5">แคลอรี่ (Cal)</th>
-                            <th class="w-1/5">จำนวนเวลา (Minute)</th>
-                            <th class="w-1/5">จำนวนครั้ง</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (name of yellow; track $index; let odd = $odd) {
-                        <tr class="hover:bg-gray-50" [ngClass]="{'bg-blue-50': odd}">
-                            <td class="p-2 px-6 border-b border-r">{{name}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{distance(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{calories(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{time(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{count(name)}}</td>
-                        </tr>
-                        }
-                        @empty {
-                        <tr>
-                            <td colspan="4" class="p-2 text-center text-sm">No data.</td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <div class="flex flex-col gap-2">
-                <div class="border border-gray-300 rounded-lg overflow-auto">
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="border-b bg-yellow-100">
-                                <th>ระยะทาง (Km)</th>
-                                <th>แคลอรี่ (Cal)</th>
-                                <th>จำนวนเวลา (Min)</th>
-                                <th>จำนวนครั้ง</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-2 px-6 text-right border-b border-r">{{distanceSum('y') | number: '0.2'}}
-                                </td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{caloriesSum('y') | number: '0.2'}}
-                                </td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{timeSum('y') | number: '0.2'}}</td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{countSum('y')}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-xl">แต้มปัจจุบัน : {{yScore1()}}</div>
-            </div>
+    <div class="flex flex-row justify-between">
+        <div>
+            <div class="pt-2 text-3xl"> NIRA SHABU CHALLENGE </div>
+            <div class="pb-2 text-xl"> 1-27 APRIL, 2025 </div>
         </div>
-
-        <div class="flex flex-row gap-4 w-full">
-            <div class="w-1/2 border border-gray-300 rounded-lg overflow-auto">
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr class="border-b bg-red-100">
-                            <th class="w-1/5">ทีมสีแดง</th>
-                            <th class="w-1/5">ระยะทาง (Km)</th>
-                            <th class="w-1/5">แคลอรี่ (Cal)</th>
-                            <th class="w-1/5">จำนวนเวลา (Min)</th>
-                            <th class="w-1/5">จำนวนครั้ง</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (name of red; track $index; let odd = $odd) {
-                        <tr class="hover:bg-gray-50" [ngClass]="{'bg-blue-50': odd}">
-                            <td class="p-2 px-6 border-b border-r">{{name}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{distance(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{calories(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{time(name) | number: '0.2'}}</td>
-                            <td class="p-2 px-6 text-right border-b border-r">{{count(name)}}</td>
-                        </tr>
-                        }
-                        @empty {
-                        <tr>
-                            <td colspan="4" class="p-2 text-center text-sm">No data.</td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
+        <div class="text-right">
+            <div class="text-3xl">
+                <span class="text-yellow-500 px-6 bg-gray-900 rounded"> {{yScore1()}}</span> :
+                <span class="text-red-500 px-6 bg-gray-900 rounded"> {{rScore1()}}</span>
             </div>
-            <div class="flex flex-col gap-2">
-                <div class="border border-gray-300 rounded-lg overflow-auto">
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="border-b bg-red-100">
-                                <th>ระยะทาง (Km)</th>
-                                <th>แคลอรี่ (Cal)</th>
-                                <th>จำนวนเวลา (Min)</th>
-                                <th>จำนวนครั้ง</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-2 px-6 text-right border-b border-r">{{distanceSum('r') | number: '0.2'}}
-                                </td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{caloriesSum('r') | number: '0.2'}}
-                                </td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{timeSum('r') | number: '0.2'}}</td>
-                                <td class="p-2 px-6 text-right border-b border-r">{{countSum('r')}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-xl">แต้มปัจจุบัน : {{rScore1()}}</div>
-            </div>
+            <div class="text-xl text-gray-500">อัปเดทล่าสุด {{today | date: 'dd-MM-yyyy HH:mm:ss'}} </div>
         </div>
-
-        <div class="text-gray-500">อัปเดทล่าสุด {{today | date: 'dd-MM-yyyy HH:mm:ss'}} </div>
-
-        <div class="grid grid-cols-2 gap-4">
-            <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart" [xaxis]="chartOptions1.xaxis"
-                [markers]="chartOptions1.markers" [stroke]="chartOptions1.stroke" [yaxis]="chartOptions1.yaxis"
-                [dataLabels]="chartOptions1.dataLabels" [title]="chartOptions1.title"
-                [plotOptions]="chartOptions1.plotOptions" [fill]="chartOptions1.fill" [tooltip]="chartOptions1.tooltip"
-                [legend]="chartOptions1.legend" [colors]="chartOptions1.colors"></apx-chart>
-
-            <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart" [xaxis]="chartOptions2.xaxis"
-                [markers]="chartOptions2.markers" [stroke]="chartOptions2.stroke" [yaxis]="chartOptions2.yaxis"
-                [dataLabels]="chartOptions2.dataLabels" [title]="chartOptions2.title"
-                [plotOptions]="chartOptions2.plotOptions" [fill]="chartOptions2.fill" [tooltip]="chartOptions2.tooltip"
-                [legend]="chartOptions2.legend" [colors]="chartOptions2.colors"></apx-chart>
-            
-                <apx-chart [series]="chartOptions3.series" [chart]="chartOptions3.chart" [xaxis]="chartOptions3.xaxis"
-                [markers]="chartOptions3.markers" [stroke]="chartOptions3.stroke" [yaxis]="chartOptions3.yaxis"
-                [dataLabels]="chartOptions3.dataLabels" [title]="chartOptions3.title"
-                [plotOptions]="chartOptions3.plotOptions" [fill]="chartOptions3.fill" [tooltip]="chartOptions3.tooltip"
-                [legend]="chartOptions3.legend" [colors]="chartOptions3.colors"></apx-chart>
-
-            <apx-chart [series]="chartOptions4.series" [chart]="chartOptions4.chart" [xaxis]="chartOptions4.xaxis"
-                [markers]="chartOptions4.markers" [stroke]="chartOptions4.stroke" [yaxis]="chartOptions4.yaxis"
-                [dataLabels]="chartOptions4.dataLabels" [title]="chartOptions4.title"
-                [plotOptions]="chartOptions4.plotOptions" [fill]="chartOptions4.fill" [tooltip]="chartOptions4.tooltip"
-                [legend]="chartOptions4.legend" [colors]="chartOptions4.colors"></apx-chart>
-        </div>
+    </div>
+    <div class="flex flex-col">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [yaxis]="chartOptions.yaxis"
+            [xaxis]="chartOptions.xaxis" [labels]="chartOptions.labels" [stroke]="chartOptions.stroke"
+            [title]="chartOptions.title" [dataLabels]="chartOptions.dataLabels" [fill]="chartOptions.fill"
+            [tooltip]="chartOptions.tooltip"></apx-chart>
     </div>
 </div>
