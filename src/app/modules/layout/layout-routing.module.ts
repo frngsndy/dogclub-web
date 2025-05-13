@@ -1,3 +1,4 @@
+import { MyfriendsComponent } from './../myfriends/myfriends.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
@@ -23,6 +24,14 @@ const routes: Routes = [
       { path: 'myself', loadComponent: () => import('../myself/myself.component').then((m) => m.MyselfComponent) },
       { path: 'strava', loadComponent: () => import('../strava/strava.component').then((m) => m.StravaComponent) },
     ]
+  },
+  {
+    path: 'myfriends',
+    component: LayoutComponent,
+    children: [
+      { path: '', loadComponent: () => import('../myfriends/myfriends.component').then((m) => m.MyfriendsComponent) },
+    ]
+
   },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

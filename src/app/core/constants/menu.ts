@@ -68,6 +68,17 @@ export class Menu {
         }
       ],
     },
+    {
+      group: 'Google Sheets',
+      separator: true,
+      items: [
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'MyFriends',
+          route: '/myfriends',
+        }
+      ],
+    },
     // {
     //   group: 'Collaboration',
     //   separator: true,
