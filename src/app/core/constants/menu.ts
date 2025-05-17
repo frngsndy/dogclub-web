@@ -6,41 +6,68 @@ export class Menu {
       group: 'Base',
       separator: false,
       items: [
-        // {
-        //   icon: 'assets/icons/heroicons/outline/chart-pie.svg',
-        //   label: 'Dashboard',
-        //   route: '/dashboard',
-        //   children: [
-        //     { label: 'Nfts', route: '/dashboard/nfts' },
-        //   ],
-        // },
-        // {
-        //   icon: 'assets/icons/heroicons/outline/lock-closed.svg',
-        //   label: 'Auth',
-        //   route: '/auth',
-        //   children: [
-        //     { label: 'Sign up', route: '/auth/sign-up' },
-        //     { label: 'Sign in', route: '/auth/sign-in' },
-        //     { label: 'Forgot Password', route: '/auth/forgot-password' },
-        //     { label: 'New Password', route: '/auth/new-password' },
-        //     { label: 'Two Steps', route: '/auth/two-steps' },
-        //   ],
-        // },
-        // {
-        //   icon: 'assets/icons/heroicons/outline/exclamation-triangle.svg',
-        //   label: 'Errors',
-        //   route: '/errors',
-        //   children: [
-        //     { label: '404', route: '/errors/404' },
-        //     { label: '500', route: '/errors/500' },
-        //   ],
-        // },
-        // {
-        //   icon: 'assets/icons/heroicons/outline/cube.svg',
-        //   label: 'Components',
-        //   route: '/components',
-        //   children: [{ label: 'Table', route: '/components/table' }],
-        // },
+        {
+          icon: 'assets/icons/heroicons/outline/chart-pie.svg',
+          label: 'Dashboard',
+          route: '/dashboard',
+          children: [
+            { label: 'Nfts', route: '/dashboard/nfts' },
+          ],
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/lock-closed.svg',
+          label: 'Auth',
+          route: '/auth',
+          children: [
+            { label: 'Sign up', route: '/auth/sign-up' },
+            { label: 'Sign in', route: '/auth/sign-in' },
+            { label: 'Forgot Password', route: '/auth/forgot-password' },
+            { label: 'New Password', route: '/auth/new-password' },
+            { label: 'Two Steps', route: '/auth/two-steps' },
+          ],
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Errors',
+          route: '/errors',
+          children: [
+            { label: '404', route: '/errors/404' },
+            { label: '500', route: '/errors/500' },
+          ],
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/cube.svg',
+          label: 'Components',
+          route: '/components',
+          children: [{ label: 'Table', route: '/components/table' }],
+        },
+      ]
+    },
+    {
+      group: 'My Work',
+      separator: false,
+      items: [
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'Money',
+          route: '/money',
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'Demo',
+          route: '/demo',
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/view-grid.svg',
+          label: 'AG Grid',
+          route: '/ag-grid',
+        },
+      ],
+    },
+    {
+      group: 'TTP',
+      separator: false,
+      items: [
         {
           icon: 'assets/icons/heroicons/outline/view-grid.svg',
           label: 'รายงาน จำนวนสัตว์',
@@ -58,11 +85,6 @@ export class Menu {
         },
         {
           icon: 'assets/icons/heroicons/outline/view-grid.svg',
-          label: 'คำนวณรายจ่าย',
-          route: '/report/myself',
-        },
-        {
-          icon: 'assets/icons/heroicons/outline/view-grid.svg',
           label: 'Strava',
           route: '/report/strava',
         }
@@ -70,7 +92,7 @@ export class Menu {
     },
     {
       group: 'Google Sheets',
-      separator: true,
+      separator: false,
       items: [
         {
           icon: 'assets/icons/heroicons/outline/view-grid.svg',

@@ -9,11 +9,6 @@
             <label class="font-semibold">ถึงวันที่ {{ endDate | date:'dd/MM/yyyy' }}</label>
             <input type="date" [(ngModel)]="endDate" (change)="onChange($event)" />
         </div>
-        <button
-            class="bg-primary hover:bg-primary/90 text-foreground hover:text-foreground/90 cursor-pointer flex-none rounded-md px-4 py-2.5 text-xs font-semibold"
-            (click)="exportToExcel()">
-            Export Excel
-        </button>
     </div>
 
     <div class="border border-gray-300 rounded-lg overflow-auto">

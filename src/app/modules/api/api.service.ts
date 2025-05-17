@@ -17,10 +17,10 @@ export class ApiService {
   }
 
   public get(url: string) {
-    return firstValueFrom(this.http.get(this.baseUrl() + url));
+    return this.http.get(this.baseUrl() + url);
   }
 
   public post(url: string, param: any) {
-    return firstValueFrom(this.http.post(this.baseUrl() + url, param));
+    return this.http.post(this.baseUrl() + url, param);
   }
 }

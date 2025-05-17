@@ -1,39 +1,35 @@
 <div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
-    <div class="flex flex-col gap-4">
-        <div class="flex flex-col sm:flex-row gap-4 pb-2">
-            <div class="flex flex-row gap-2">
-                <label class="block">เงินเดือน : </label>
-                <div>{{salary()}}</div>
-                <label class="block">+ ค่าที่พัก : </label>
-                <div>{{house()}}</div>
-            </div>
-        </div>
-        <div class="border border-gray-300 rounded-lg overflow-auto">
-            <table class="w-full border-collapse">
-                <thead>
-                    <tr class="border-b bg-gray-100">
-                        <th class="p-2">รายการ</th>
-                        <th class="p-2">ค่าใช้จ่าย</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (item of items; track $index) {
-                    <tr class="hover:bg-gray-50">
-                        <td class="p-2 border-b border-r">{{item.description}}</td>
-                        <td class="p-2 border-b text-right">{{item.cost | number: '0.2'}}</td>
-                    </tr>
-                    }
-                    @empty {
-                    <tr>
-                        <td colspan="5" class="p-2 text-center text-sm">No data.</td>
-                    </tr>
-                    }
-                    <tr>
-                        <td class="p-2">คงเหลือ</td>
-                        <td class="p-2 text-right">{{total() | number: '0.2'}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="overflow-auto transition-discrete">
+        <table class="border-collapse border border-gray-400">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 p-2">เดือน</th>
+                    <th class="border border-gray-300 p-2">เงินเดือน</th>
+                    <th class="border border-gray-300 p-2">โบนัส</th>
+                    <th class="border border-gray-300 p-2">หักภาษี</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                <tr class="hover:bg-gray-50 text-right">
+                    <td class="border border-gray-300 p-2 text-center">{{item.month}}</td>
+                    <td class="border border-gray-300 p-2">{{item.salary | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2">{{item.bonus | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2">{{item.cost | number: '0.2'}}</td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="5" class="p-2 text-center text-sm">No data.</td>
+                </tr>
+                }
+                <tr class="bg-gray-100">
+                    <td class="border border-gray-300 p-2">รวม</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('salary')}}</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('bonus')}}</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('')}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

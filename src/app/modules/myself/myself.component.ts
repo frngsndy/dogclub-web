@@ -9,21 +9,25 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './myself.component.css'
 })
 export class MyselfComponent {
-  salary = signal<number>(34500);
-  house = signal<number>(this.salary() * 15 / 100);
+  
   items: any[] = [
-    { description: 'ประกันสังคม', cost: 750 },
-    { description: 'สำรองเลี้ยงชีพ', cost: this.salary() * 5/100 },
-    { description: 'ให้พ่อแม่', cost: 5000 },
-    { description: 'ลงทุน', cost: 5000 },
-    { description: 'ค่าหอ', cost: 5000 },
-    { description: 'ค่าน้ำมัน', cost: 2000 },
-    { description: 'ค่าของใช้', cost: 5000 },
-    { description: 'ค่าอาหาร', cost: 30 * 30 * 3 },
-    { description: 'บัตรเครดิต', cost: 2890 + 3490 },
+    // { month: 'JAN', salary: 37111.13 },
+    { month: 'JAN', salary: 37636.79, bonus: 34529.9 },
+    { month: 'FEB', salary: 38316.79, bonus: 22566.6 },
+    { month: 'MAR', salary: 38316.79, bonus: 0 },
+    { month: 'APR', salary: 38046.79, bonus: 0 },
+    { month: 'MAY', salary: 0, bonus: 0 },
+    { month: 'JUN', salary: 0, bonus: 0 },
+    { month: 'JUL', salary: 0, bonus: 0 },
+    { month: 'AUG', salary: 0, bonus: 0 },
+    { month: 'SEP', salary: 0, bonus: 0 },
+    { month: 'OCT', salary: 0, bonus: 0 },
+    { month: 'NOV', salary: 0, bonus: 0 },
+    { month: 'DEC', salary: 0, bonus: 0 },
   ];
 
-  total() {
-    return this.salary() + this.house() - this.items.reduce((sum, item) => sum + item.cost, 0)
+  total(value: string) {
+    return this.items.reduce((sum, item) => sum + (item[value] || 0), 0)
   }
+
 }

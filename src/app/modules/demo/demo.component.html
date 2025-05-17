@@ -1,0 +1,53 @@
+<div class="flex flex-col px-6 py-4 bg-white rounded-2xl">
+    <div class="flex flex-row gap-2">
+        <div class="pr-2">base : {{base | number: '0.2'}}</div>
+        <div class="pr-2">house : {{house | number: '0.2'}}</div>
+        <div class="pr-2">income : {{income | number: '0.2'}}</div>
+    </div>
+    <div class="flex flex-row gap-2">
+        <div class="pr-2">overyear : {{overyear | number: '0.2'}}</div>
+        <div class="pr-2">net : {{net | number: '0.2'}}</div>
+        <div class="pr-2">tax1 : {{tax1 | number: '0.2'}}</div>
+    </div>
+    <div class="relative">
+        <button class="px-2 rounded-2xl bg-blue-100 hover:bg-blue-200 cursor-pointer" (click)="check()">check !</button>
+    </div>
+    <div class="overflow-auto transition-discrete">
+        <table class="border-collapse border border-gray-400" cdkDropList cdkDropList
+            (cdkDropListDropped)="drop($event)">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 p-2">เดือน</th>
+                    <th class="border border-gray-300 p-2">เงินเดือน</th>
+                    <th class="border border-gray-300 p-2">โบนัส</th>
+                    <th class="border border-gray-300 p-2">รับรวม</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                <tr class="hover:bg-gray-50 text-right" cdkDrag>
+                    <td class="border border-gray-300 p-2 text-center">
+                        <span cdkDragHandle class="cursor-move text-gray-500">☰</span>
+                        {{item.month}}
+                    </td>
+                    <td class="border border-gray-300 p-2">{{item.salary | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2">{{item.bonus | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2">{{item.salary+item.bonus | number: '0.2'}}</td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="5" class="p-2 text-center text-sm">No data.</td>
+                </tr>
+                }
+                <tr class="bg-gray-100">
+                    <td class="border border-gray-300 p-2">รวม</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('salary') | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('bonus') | number: '0.2'}}</td>
+                    <td class="border border-gray-300 p-2 text-right">{{total('salary')+total('bonus') | number: '0.2'}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
